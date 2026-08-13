@@ -2,10 +2,6 @@
   "name": "hvactechlab",
   "compatibility_date": "2026-08-13",
   "assets": {
-    "directory": ".",
-    "exclude": [
-      ".git/**",
-      ".wrangler/**"
-    ]
+    "directory": "./assets"
   }
 }
