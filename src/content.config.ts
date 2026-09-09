@@ -10,6 +10,7 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('HVACTechLab'),
     category: z.string(),
+    subcategory: z.string().optional(),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
   }),

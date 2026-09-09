@@ -190,3 +190,12 @@ p {
   font-size: 0.85rem;
   color: #777;
 }
+
+.article-group {
+  margin-top: 50px;
+}
+
+.article-group h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}

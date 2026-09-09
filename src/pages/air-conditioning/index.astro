@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles', ({ data }) =>
+  data.category === 'Air Conditioning'
+);
+
+const groupedArticles = articles.reduce((groups, article) => {
+  const subcategory = article.data.subcategory ?? 'Other';
+
+  if (!groups[subcategory]) {
+    groups[subcategory] = [];
+  }
+
+  groups[subcategory].push(article);
+
+  return groups;
+}, {});
+---
+
+<BaseLayout
+  title="Air Conditioning | HVACTechLab"
+  description="Air conditioning guides, troubleshooting advice, repair information, maintenance and costs."
+>
+  <h1>Air Conditioning</h1>
+
+  <p class="page-intro">
+    Air conditioning guides covering troubleshooting, repair, maintenance,
+    costs and replacement.
+  </p>
+
+  {Object.entries(groupedArticles).map(([subcategory, subcategoryArticles]) => (
+    <section class="article-group">
+      <h2>{subcategory}</h2>
+
+      <ul class="article-list">
+        {subcategoryArticles.map((article) => (
+          <li>
+            <h3>
+              <a href={`/${article.id}/`}>
+                {article.data.title}
+              </a>
+            </h3>
+
+            <p>{article.data.description}</p>
+
+            <p class="article-meta">
+              {article.data.publishedDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

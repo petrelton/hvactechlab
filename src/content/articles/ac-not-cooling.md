@@ -3,6 +3,7 @@ title: "Why Is My Air Conditioner Not Cooling?"
 description: "Common reasons an air conditioner runs but fails to cool your home, and what you can check before calling an HVAC technician."
 publishedDate: 2026-09-09
 category: "Air Conditioning"
+subcategory: "AC Problems & Troubleshooting"
 tags:
   - AC problems
   - air conditioner
