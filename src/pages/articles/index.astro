@@ -14,14 +14,14 @@ articles.sort(
   title="HVAC Articles | HVACTechLab"
   description="HVAC guides, troubleshooting advice, costs, comparisons and buying information."
 >
-  <h1>HVAC Articles</h1>
+  <h1>HVAC Guides & Resources</h1>
 
-  <p>
+  <p class="page-intro">
     Practical HVAC guides covering air conditioning, heating, heat pumps,
     costs, maintenance and more.
   </p>
 
-  <ul>
+  <ul class="article-list">
     {articles.map((article) => (
       <li>
         <h2>
@@ -32,7 +32,7 @@ articles.sort(
 
         <p>{article.data.description}</p>
 
-        <p>
+        <p class="article-meta">
           <small>
             {article.data.category} ·{' '}
             {article.data.publishedDate.toLocaleDateString('en-US', {
