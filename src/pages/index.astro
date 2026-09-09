@@ -1,11 +1,67 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+  title="HVACTechLab | HVAC Guides, Costs & Troubleshooting"
+  description="Practical HVAC guides covering air conditioning, heating, heat pumps, troubleshooting, costs and buying information."
+>
+  <section class="hero">
+    <h1>HVAC Guides, Troubleshooting & Resources</h1>
+
+    <p class="page-intro">
+      Practical, easy-to-understand information about air conditioning,
+      heating, heat pumps, HVAC costs, maintenance and more.
+    </p>
+  </section>
+
+  <section class="article-group">
+    <h2>Explore HVAC Topics</h2>
+
+    <ul class="article-list">
+      <li>
+        <h3><a href="/air-conditioning/">Air Conditioning</a></h3>
+        <p>
+          Troubleshooting, repair, maintenance, replacement and cost guides
+          for air conditioning systems.
+        </p>
+      </li>
+
+      <li>
+        <h3><a href="/heating/">Heating</a></h3>
+        <p>
+          Guides to heating systems, common problems, maintenance,
+          repairs and replacement.
+        </p>
+      </li>
+
+      <li>
+        <h3><a href="/heat-pumps/">Heat Pumps</a></h3>
+        <p>
+          Heat pump guides covering operation, troubleshooting, maintenance,
+          costs and comparisons.
+        </p>
+      </li>
+
+      <li>
+        <h3><a href="/hvac-costs/">HVAC Costs</a></h3>
+        <p>
+          Information about HVAC repair, installation, replacement,
+          maintenance and operating costs.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="article-group">
+    <h2>Latest HVAC Guides</h2>
+
+    <p>
+      Browse our collection of practical HVAC articles and guides.
+    </p>
+
+    <p>
+      <a href="/articles/">View all HVAC guides →</a>
+    </p>
+  </section>
+</BaseLayout>
