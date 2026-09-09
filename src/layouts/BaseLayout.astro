@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="site-header">
+        <a href="/" class="logo">HVACTechLab</a>
+
+        <nav>
+          <a href="/">Home</a>
+          <a href="/air-conditioning/">Air Conditioning</a>
+          <a href="/heating/">Heating</a>
+          <a href="/heat-pumps/">Heat Pumps</a>
+          <a href="/hvac-costs/">HVAC Costs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="site-footer">
+        <p>© {new Date().getFullYear()} HVACTechLab</p>
+      </div>
+    </footer>
+  </body>
+</html>
