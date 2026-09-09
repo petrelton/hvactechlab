@@ -1,60 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-
-const articles = await getCollection('articles', ({ data }) =>
-  data.category === 'Heat Pumps'
-);
-
-const groupedArticles = articles.reduce((groups, article) => {
-  const subcategory = article.data.subcategory ?? 'Other';
-
-  if (!groups[subcategory]) {
-    groups[subcategory] = [];
-  }
-
-  groups[subcategory].push(article);
-
-  return groups;
-}, {});
+import CategoryPage from '../../components/CategoryPage.astro';
 ---
 
-<BaseLayout
-  title="Heat Pumps | HVACTechLab"
+<CategoryPage
+  category="Heat Pumps"
+  title="Heat Pumps"
   description="Heat pump guides, troubleshooting advice, repair information, maintenance, costs and buying information."
->
-  <h1>Heat Pumps</h1>
-
-  <p class="page-intro">
-    Heat pump guides covering troubleshooting, repair, maintenance,
-    costs, comparisons and buying information.
-  </p>
-
-  {Object.entries(groupedArticles).map(([subcategory, subcategoryArticles]) => (
-    <section class="article-group">
-      <h2>{subcategory}</h2>
-
-      <ul class="article-list">
-        {subcategoryArticles.map((article) => (
-          <li>
-            <h3>
-              <a href={`/${article.id}/`}>
-                {article.data.title}
-              </a>
-            </h3>
-
-            <p>{article.data.description}</p>
-
-            <p class="article-meta">
-              {article.data.publishedDate.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </section>
-  ))}
-</BaseLayout>
+  intro="Heat pump guides covering troubleshooting, repair, maintenance, costs, comparisons and buying information."
+/>
